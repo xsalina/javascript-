@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定时器一开始有个定时器模块，他不会等到同步代码执行完之后，开始倒计时。他一开始就倒计时了，然后吧执行的函数放进了宏任务里面
+        // 定时器倒数计时越短，他就排在越前面，所以1000倒计时的时候这个函数先执行
+        setTimeout(() => {
+            console.log('setTimeout1')
+        }, 2000);//4
+        setTimeout(() => {
+            console.log('setTimeout2')
+        }, 1000);//3
+        console.log('后盾人')//1
+        for(let i=0;i<10000;i++){
+            console.log(32323)//2
+        }
+    </script>
+</body>
+</html>

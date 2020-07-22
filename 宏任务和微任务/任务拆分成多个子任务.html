@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 这样会造成堵塞
+        let num = 100;
+        let count = 0;
+        // function xyp(){
+        //     for(let i = 0;i<num;i++){
+        //         count += num--
+        //     }
+        //     console.log(count)
+           
+        // }
+        // xyp()
+        // console.log('houdunren.com')
+        
+        function xyp(){
+            for(let i = 0;i<num;i++){
+                if(num <= 0) break;
+                count += num--
+            }
+            if(num > 0){
+                setTimeout(xyp);
+            }
+        }
+        console.log('houdunren.com')
+
+
+
+        xyp()
+    </script>
+</body>
+</html>

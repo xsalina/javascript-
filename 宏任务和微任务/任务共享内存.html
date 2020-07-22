@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //任务会一个一个进行 不会同时进行
+         let i = 0;
+        //  setTimeout(() => {
+        //      console.log(i++)//0
+        //  }, 1000);
+        //  setTimeout(() => {
+        //      console.log(i++)//1
+        //  }, 1000);
+
+         setTimeout(() => {
+             console.log(++i)//1
+         }, 1000);
+         setTimeout(() => {
+             console.log(++i)//2
+         }, 1000);
+    </script>
+</body>
+</html>

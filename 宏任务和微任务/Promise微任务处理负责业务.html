@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function sum(num){
+        //     return new Promise(resolve => {
+        //         let count = 0;
+        //         setTimeout(() => {
+        //           for(let i = 0;i < num;i++){
+        //                 count += num--
+        //             }
+        //             resolve(count)
+        //         });
+                
+        //     })
+        // }
+        // sum(332).then(res=>console.log(res))
+
+        // async function xyp(num){
+        //     let res = await sum(num)
+        //     console.log(2222,res)
+        // }
+        // xyp(67)
+
+
+        async function xyp(num){
+            let res = await Promise.resolve().then(_=>{
+                let count = 0;
+                for(let i=0;i<num;i++){
+                    count += num--
+                }
+                return count;
+            })
+        }
+        xyp(345345)
+        console.log(7777)
+    </script>
+</body>
+</html>

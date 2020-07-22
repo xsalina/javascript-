@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     xyp
+    //    Promise  属于微任务，微任务优先级大于宏任务
+    //    setTimeout  属于宏任务，等到所有的微任务执行结束后在执行宏任务
+        setTimeout(() => {
+            console.log('setTimeout')
+        }, 0);//4
+        setTimeout(() => {
+            console.log('setTimeout2')
+        }, 2);//5
+        Promise.resolve().then(value => console.log('Promise'))//2
+        Promise.resolve().then(value => console.log('Promise1'))//3
+        console.log('xyp')//1
+    </script>
+</body>
+</html>
