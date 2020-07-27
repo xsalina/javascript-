@@ -23,7 +23,7 @@ class XYP{
     }
 }
 let p =new XYP((resolve,reject)=>{
-    //这两个函数只能执行一个 要么成功要么失败，
+    
     resolve('成功了');
     reject('失败了')
 });
