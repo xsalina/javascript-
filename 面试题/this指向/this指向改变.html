@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //call   调用一个对象的一个方法，用另一个对象替换房前对象，例如B.call(A,args,args2);即A对象调用B对象的方法
+
+    let obj = {
+      name: '王五',
+      age: 25,
+      getName(a, b, c) {
+        //   this.name = 999;
+        console.log(this.name, a, b, c)
+      }
+    }
+
+    obj.getName()//王五
+
+    var name = '张三'
+    function b() {
+      //调用一个对象的一个方法，用另一个对象替换房前对象，例如B.call(A,args,args2);即A对象调用B对象的方法
+      obj.getName.call(this, 999, 888, 777)//16打印出张三，999 888 777
+    }
+    b()
+    console.log(6666666666,'call 结束')
+
+
+
+
+     //apply  调用一个对象的一个方法，用另一个对象替换房前对象，例如B.call(A,args,args2);即A对象调用B对象的方法
+     let obj1 = {
+      name1: '王五',
+      age: 25,
+      getName(a, b, c) {
+        //   this.name = 999;
+        console.log(this.age, 'a='+a, 'b='+b, 'c='+c)
+      }
+    }
+
+    // obj1.getName()//王五
+
+    var age = 18;
+
+    function b1() {
+      //调用一个对象的一个方法，用另一个对象替换房前对象，例如B.call(A,args,args2);即A对象调用B对象的方法
+      obj1.getName.apply(this, [999, 888, 777])//18 "a=999" "b=888" "c=777"
+    }
+    b1()
+    console.log(6666666666,'apply 结束')
+
+
+
+
+
+
+   
+
+
+
+
+     //bind  bind除了返回是函数以外，其他参数和call一样。
+     let obj2 = {
+      name2: '王五',
+      age: 25,
+      getName(a, b, c) {
+        //   this.name = 999;
+        console.log(this.age, 'a='+a, 'b='+b, 'c='+c)
+      }
+    }
+
+    // obj1.getName()//王五
+
+    var age2 = 18;
+
+    function b2() {
+      //调用一个对象的一个方法，用另一个对象替换房前对象，例如B.call(A,args,args2);即A对象调用B对象的方法
+      obj2.getName.bind(this, [555, 444, 333])()//18 "a=555,444,333" "b=undefined" "c=undefined"
+    }
+    b2()
+    console.log(6666666666,'bind 结束')
+
+
+
+
+    
+  </script>
+
+
+
+  
+</body>
+
+</html>
