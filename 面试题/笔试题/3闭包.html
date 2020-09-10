@@ -1,0 +1,57 @@
+<!--
+ * @Date: 2020-09-10 19:57:55
+ * @Autor: 肖月萍
+ * @Description: Do not edit
+ * @LastEditors: 肖月萍
+ * @LastEditTime: 2020-09-10 20:06:48
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+     <script>
+         function calc(){
+            // 第一步：先找出bug原因
+            //     1.1：for循环5次，那么应该设定了5个定时器，这个没错
+            //     1.2：setTimeout等待for循环执行完成后立即调用定时器
+            //     1.3：setTimeout被放在了队列的数据结构中（for循环），等待上下文的代码运行后再执行定时器，
+            //     此时运行定时器，变量i已经变成了5（此时5个定时器的i都是5），所以输出全是5
+
+             for(var i = 0; i < 5; i++){
+                 setTimeout(()=>{
+                     console.log(i)//5个5
+                 },0)
+             }
+             console.log(i)
+         }
+
+
+         function calc1(){
+        //    1.for(let i = 0; i < 5; i++){
+        //          setTimeout(()=>{
+        //              console.log(i)//0，1，2，3，4
+        //          },0)
+        //      }
+
+
+             for(var i = 0; i < 5; i++){
+                 (
+                    function(i){
+                        setTimeout(()=>{
+                            console.log(i)//0，1，2，3，4
+                        },0)
+                     }
+                 )(i)
+                 
+             }
+             console.log(i)
+         }
+        //  calc()
+         calc1()
+     </script>
+ </body>
+ </html>
